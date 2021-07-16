@@ -8,8 +8,12 @@ use App\Siswa;
 class SiswaController extends Controller
 {
     //fungsi get all siswa
-    public function index(){
-        $data_siswa =Siswa::all();
+    public function index(Request $request){
+        if($request->has('cari')){
+            $data_siswa= Siswa::where('nama_depan','LIKE','%'.$request->cari.'%')->get();
+        }else{
+            $data_siswa =Siswa::all();
+        }
         return view('siswa.index',['data_siswa'=>$data_siswa]);
     }
     //fungsi create siswa

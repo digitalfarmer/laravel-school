@@ -42,7 +42,7 @@
                     <a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sm">
                         <i class="bi-pencil"></i>
                     </a>
-                    <a href="/siswa/{{$siswa->id}}/delete" class="btn btn-danger btn-sm">
+                    <a href="/siswa/{{$siswa->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Yakin Mau di hapus ? ')">
                         <i class="bi-trash"></i>
                     </a>
                 </td>
