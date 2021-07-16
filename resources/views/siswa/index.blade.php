@@ -19,7 +19,7 @@
         <h1>Daftar Siswa</h1>
     </div>
 
-    <table class="table">
+    <table class="table table-hover table-striped">
         <thead>
         <tr>
             <th>Nama Depan</th>
@@ -39,7 +39,12 @@
                 <td>{{$siswa->jenis_kelamin}}</td>
                 <td>{{$siswa->alamat}}</td>
                 <td>
-                    <a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sm">
+                        <i class="bi-pencil"></i>
+                    </a>
+                    <a href="/siswa/{{$siswa->id}}/delete" class="btn btn-danger btn-sm">
+                        <i class="bi-trash"></i>
+                    </a>
                 </td>
             </tr>
         @endforeach
