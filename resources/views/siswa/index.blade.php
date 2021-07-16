@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <div class="row">
     @if(session('sukses'))
     <div class="alert alert-success" role="alert">
        {{session('sukses')}}
@@ -7,51 +8,51 @@
     </div>
     @endif
 
-    <div class="row">
-    <div class="col-6">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary btn-sm my-5" data-bs-toggle="modal" data-bs-target="#inputSiswa">
-            Add
-        </button>
+    <div class="panel">
 
+    <div class="panel-heading">
+        <h1 class="panel-title">Daftar Siswa</h1>
+        <div class="right">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn" data-toggle="modal" data-target="#inputSiswa"><i class="fa fa-plus-circle"></i> Input </button>
+        </div>
     </div>
-    <div class="col-6">
-        <h1>Daftar Siswa</h1>
+        <div class="panel-body">
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Nama Depan</th>
+                    <th>Nama Belakang</th>
+                    <th>Agama</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Alamat</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($data_siswa as $siswa)
+                    <tr>
+                        <td> {{$siswa->nama_depan}}</td>
+                        <td>{{$siswa->nama_belakang}}</td>
+                        <td>{{$siswa->agama}}</td>
+                        <td>{{$siswa->jenis_kelamin}}</td>
+                        <td>{{$siswa->alamat}}</td>
+                        <td>
+                            <a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sm">
+                                <i class="bi-pencil"></i>
+                            </a>
+                            <a href="/siswa/{{$siswa->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Yakin Mau di hapus ? ')">
+                                <i class="bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <table class="table table-hover table-striped">
-        <thead>
-        <tr>
-            <th>Nama Depan</th>
-            <th>Nama Belakang</th>
-            <th>Agama</th>
-            <th>Jenis Kelamin</th>
-            <th>Alamat</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($data_siswa as $siswa)
-            <tr>
-                <td> {{$siswa->nama_depan}}</td>
-                <td>{{$siswa->nama_belakang}}</td>
-                <td>{{$siswa->agama}}</td>
-                <td>{{$siswa->jenis_kelamin}}</td>
-                <td>{{$siswa->alamat}}</td>
-                <td>
-                    <a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sm">
-                        <i class="bi-pencil"></i>
-                    </a>
-                    <a href="/siswa/{{$siswa->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Yakin Mau di hapus ? ')">
-                        <i class="bi-trash"></i>
-                    </a>
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-    </div>
-</div>
+
 
 
 <!-- Modal -->
@@ -79,7 +80,7 @@
 
                     <div class="mb-3">
                         <label for="jenis_kelamin" class="form-label">Pilih Jenis Kelamin</label>
-                        <select name="jenis_kelamin" class="form-select" aria-label="Default select example">
+                        <select name="jenis_kelamin" class="form-select form-control" aria-label="Default select example">
                             <option value="L">Laki-Laki</option>
                             <option value="P">Perempuan</option>
 
