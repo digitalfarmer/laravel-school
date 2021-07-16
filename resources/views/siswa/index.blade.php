@@ -40,16 +40,20 @@
             <th>Agama</th>
             <th>Jenis Kelamin</th>
             <th>Alamat</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($data_siswa as $data)
+        @foreach($data_siswa as $siswa)
             <tr>
-                <td> {{$data->nama_depan}}</td>
-                <td>{{$data->nama_belakang}}</td>
-                <td>{{$data->agama}}</td>
-                <td>{{$data->jenis_kelamin}}</td>
-                <td>{{$data->alamat}}</td>
+                <td> {{$siswa->nama_depan}}</td>
+                <td>{{$siswa->nama_belakang}}</td>
+                <td>{{$siswa->agama}}</td>
+                <td>{{$siswa->jenis_kelamin}}</td>
+                <td>{{$siswa->alamat}}</td>
+                <td>
+                    <a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                </td>
             </tr>
         @endforeach
         </tbody>
