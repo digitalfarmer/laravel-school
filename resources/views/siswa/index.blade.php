@@ -83,7 +83,6 @@
                         <select name="jenis_kelamin" class="form-select form-control" aria-label="Default select example">
                             <option value="L">Laki-Laki</option>
                             <option value="P">Perempuan</option>
-
                         </select>
                     </div>
 
@@ -98,8 +97,6 @@
                         <textarea name="alamat" class="form-control" rows="3" id="alamat"></textarea>
                         {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>--}}
                     </div>
-
-
 
             </div>
             <div class="modal-footer">
