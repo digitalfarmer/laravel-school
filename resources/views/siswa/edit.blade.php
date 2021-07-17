@@ -12,7 +12,7 @@
             <h1>Edit Data Siswa</h1>
         </div>
         <div class="panel-body">
-            <form action="/siswa/{{$siswa->id}}/update" method="POST">
+            <form action="/siswa/{{$siswa->id}}/update" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="mb-3">
                     <label for="nama_depan" class="form-label">Nama Depan</label>
@@ -44,6 +44,12 @@
                 <div class="mb-3">
                     <label for="alamat" class="form-label">Alamat</label>
                     <textarea name="alamat"  class="form-control" rows="3" id="alamat" >{{$siswa->alamat}}</textarea>
+                    {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>--}}
+                </div>
+
+                <div class="mb-3">
+                    <label for="avatar" class="form-label">Avatar</label>
+                    <input type="file" name="avatar" class="form-control"/>
                     {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>--}}
                 </div>
 
