@@ -81,6 +81,12 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input name="email" type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="user@gmail.com">
+                        {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>--}}
+                    </div>
+
+                    <div class="mb-3">
                         <label for="jenis_kelamin" class="form-label">Pilih Jenis Kelamin</label>
                         <select name="jenis_kelamin" class="form-select form-control" aria-label="Default select example">
                             <option value="L">Laki-Laki</option>
