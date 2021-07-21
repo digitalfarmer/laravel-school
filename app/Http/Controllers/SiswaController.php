@@ -19,7 +19,10 @@ class SiswaController extends Controller
     }
     //fungsi create siswa
     public function create(Request $request){
-
+        $this->validate($request,[
+            'nama_depan'=>'required|min:4',
+            'email'=>'required|email|unique:users'
+        ]);
 
         //create user
         $user = new User();

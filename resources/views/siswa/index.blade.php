@@ -68,42 +68,53 @@
             <div class="modal-body">
                 <form action="/siswa/create" method="POST">
                     {{ csrf_field() }}
-                    <div class="mb-3">
+                    <div class="mb-3 form-group {{$errors->has('nama_depan') ? 'has-error':''}}">
                         <label for="nama_depan" class="form-label">Nama Depan</label>
-                        <input name="nama_depan" type="text" class="form-control" id="nama_depan" aria-describedby="emailHelp" placeholder="Nama Depan">
+                        <input name="nama_depan" type="text" class="form-control" id="nama_depan" aria-describedby="emailHelp" placeholder="Nama Depan" value="{{old('nama_depan')}}">
                         {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>--}}
+                        @if($errors->has('nama_depan'))
+                            <span class="help-block">{{$errors->first('nama_depan')}}</span>
+                        @endif
                     </div>
 
                     <div class="mb-3">
                         <label for="nama_belakang" class="form-label">Nama Blekang</label>
-                        <input name="nama_belakang" type="text" class="form-control" id="nama_belakang" aria-describedby="emailHelp" placeholder="Nama Belakang">
+                        <input name="nama_belakang" type="text" class="form-control" id="nama_belakang" aria-describedby="emailHelp" placeholder="Nama Belakang" value="{{old('nama_belakang')}}">
                         {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>--}}
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3 form-group {{$errors->has('email') ? 'has-error':''}}">
                         <label for="email" class="form-label">Email</label>
-                        <input name="email" type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="user@gmail.com">
+                        <input name="email" type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="user@gmail.com" value="{{old('email')}}">
                         {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>--}}
+                        @if($errors->has('email'))
+                            <span class="help-block">{{$errors->first('email')}}</span>
+                        @endif
                     </div>
 
                     <div class="mb-3">
                         <label for="jenis_kelamin" class="form-label">Pilih Jenis Kelamin</label>
                         <select name="jenis_kelamin" class="form-select form-control" aria-label="Default select example">
-                            <option value="L">Laki-Laki</option>
-                            <option value="P">Perempuan</option>
+                            <option value="L" {{(old('jenis_kelamin')== 'L') ? 'selected' : ''}}>Laki-Laki</option>
+                            <option value="P" {{(old('jenis_kelamin')== 'P') ? 'selected' : ''}}>Perempuan</option>
                         </select>
                     </div>
 
                     <div class="mb-3">
                         <label for="agama" class="form-label">Agama</label>
-                        <input name="agama" type="text" class="form-control" id="agama" aria-describedby="emailHelp" placeholder="Agama / Kepercayaan">
+                        <input name="agama" type="text" class="form-control" id="agama" aria-describedby="emailHelp" placeholder="Agama / Kepercayaan" value="{{old('agama')}}">
                         {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>--}}
                     </div>
 
                     <div class="mb-3">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <textarea name="alamat" class="form-control" rows="3" id="alamat"></textarea>
+                        <textarea name="alamat" class="form-control" rows="3" id="alamat">{{old('alamat')}}</textarea>
                         {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>--}}
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="avatar">Avatar</label>
+                        <input type="file" name="avatar" class="form-control"/>
                     </div>
 
             </div>
